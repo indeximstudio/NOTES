@@ -16,15 +16,16 @@ abstract class ajaxPars
     private $delay;
     private $ajaxPath;
     protected $data;
-    private $flow;
+    public $flow;
     private $start;
+    protected $countIterations;
 
     /**
      * ajaxPars constructor.
      *
-     * @param         $id - уникальный номер парсинга
-     * @param         $delay - задержка в мс
-     * @param         $ajaxPath - ссылка на обработчик
+     * @param $id - уникальный номер парсинга
+     * @param $delay - задержка в мс
+     * @param $ajaxPath - ссылка на обработчик
      * @param array $data - данные
      * @param integer $flow - потоки
      */
@@ -36,19 +37,18 @@ abstract class ajaxPars
         $this->data = $data;
         $this->flow = $flow;
 
+        $this->countIterations = $this->getCountIterations();
         $this->get_data_from_session();
     }
 
     /**
      * получение количества итераций
-     *
      * @return integer
      */
     abstract function getCountIterations();
 
     /**
      * выполнение действий С полученными данными
-     *
      * @return string
      */
     abstract function getAction();
@@ -58,7 +58,7 @@ abstract class ajaxPars
      */
     private function get_data_from_session()
     {
-        if (isset($_SESSION['parsing'][$this->id]['data']) and is_array($_SESSION['parsing'][$this->id]['data']) and count($_SESSION['parsing'][$this->id]['data']) > 0) {
+        if ($this->data == '' and isset($_SESSION['parsing'][$this->id]['data']) and count($_SESSION['parsing'][$this->id]['data']) > 0) {
             $this->data = $_SESSION['parsing'][$this->id]['data'];
         } elseif (isset($this->data) and $this->data != '') {
             $_SESSION['parsing'][$this->id]['data'] = $this->data;
@@ -70,61 +70,58 @@ abstract class ajaxPars
 
     /**
      * получение процентов выполнения
-     *
      * @return integer
      */
     public function getValue()
     {
-        if ($this->getCountIterations() > 0) {
+        if ($this->countIterations > 0) {
             $_SESSION['parsing'][$this->id]['tekyshiy'] = $_SESSION['parsing'][$this->id]['tekyshiy'] + 1;
-            $_SESSION['parsing'][$this->id]['procent'] = $_SESSION['parsing'][$this->id]['tekyshiy'] * 100 / $this->getCountIterations();
+            $_SESSION['parsing'][$this->id]['procent'] = $_SESSION['parsing'][$this->id]['tekyshiy'] * 100 / $this->countIterations;
             $value = number_format($_SESSION['parsing'][$this->id]['procent'], 2, '.', '');;
         } else {
             $value = 100;
         }
-
         return $value;
     }
 
 
     /**
      * вычисление и вывод данных о текущей операции
-     *
      * @return string
      */
     public function ajaxTime()
     {
         $time_start = isset($_SESSION['parsing'][$this->id]['start']) ? $_SESSION['parsing'][$this->id]['start'] : 0;
-        $ostalos = $this->getCountIterations() - $_SESSION['parsing'][$this->id]['tekyshiy'];
+        $ostalos = $this->countIterations - $_SESSION['parsing'][$this->id]['tekyshiy'];
 
         if ($time_start == 0) {
             $_SESSION['parsing'][$this->id]['time'] = array();
             $ostalos_time_min = '';
         } else {
-            if (count($_SESSION['parsing'][$this->id]['time']) > 50) {
+            if (count($_SESSION['parsing'][$this->id]['time']) > 5) {
                 $_SESSION['time'] = array();
             }
             $time_stop = microtime(TRUE);
             $time = $time_stop - $time_start;
+
             $_SESSION['parsing'][$this->id]['time'][] = $time;
             $sr = 0;
             if (is_array($_SESSION['parsing'][$this->id]['time'])) {
                 $sr = array_sum($_SESSION['parsing'][$this->id]['time']) / count($_SESSION['parsing'][$this->id]['time']);
             }
 
-            $ostalos_time = $ostalos * $sr;
+            $ostalos_time = ($ostalos * $sr) / $this->flow;;
             $ostalos_time_min = sprintf('%02d:%02d:%02d', $ostalos_time / 3600, ($ostalos_time % 3600) / 60, ($ostalos_time % 3600) % 60);
         }
-        $_SESSION['parsing'][$this->id]['start'] = microtime(TRUE);
+        $_SESSION['parsing'][$this->id]['start'] = microtime(true);
 
-        return '<br>processed items = ' . $ostalos . '/' . $this->getCountIterations() . '<br>
+        return '<br>processed items = ' . $ostalos . '/' . $this->countIterations . '<br>
                     need time = ' . $ostalos_time_min . ' <br>
                     current = ' . ($_SESSION['parsing'][$this->id]['tekyshiy'] + $this->flow) . ' ';
     }
 
     /**
      * запуск парсинга
-     *
      * @return string
      */
     public function StartPars()
@@ -145,21 +142,20 @@ abstract class ajaxPars
 
     /**
      * получаем данные и возвращем их через json
-     *
      * @return string
      */
     public function getValueJson()
     {
         $out['text'] = $this->ajaxTime();
-        $out['value'] = $this->getValue();
-        $out['test'] = $this->getAction();
-
+        for ($x = 0; $x < $this->flow; $x++) {
+            $out['value'] = $this->getValue();
+            $out['test'] = $this->getAction();
+        }
         return json_encode($out);
     }
 
     /**
      * вывод полосы прогреса
-     *
      * @return string
      */
     public function getProgress()
@@ -171,17 +167,15 @@ abstract class ajaxPars
                         <div class="progress-bar progress-bar-striped active" role = "progressbar" aria - valuenow = "0" aria - valuemin = "0" aria - valuemax = "100" style = "width:0" ></div >
                     </div >
                 </div >
+                <br />
                 <div id = "statys_' . $this->id . '" ></div >
                 <div id = "test_' . $this->id . '" ></div >
-                <div id = "add_' . $this->id . '" ></div >                
               </div >';
-
         return $p;
     }
 
     /**
      * перевод данных из пост формы в параметры для отправки по ajax
-     *
      * @return string
      */
     private function post_to_value()
@@ -195,7 +189,6 @@ abstract class ajaxPars
             }
         }
         $out = implode(",", $li);
-
         return $out;
     }
 
@@ -209,6 +202,8 @@ abstract class ajaxPars
         } else {
             $start = '';
         }
+
+
         $js = "
         <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
         <script type='text/javascript'>
@@ -258,7 +253,6 @@ abstract class ajaxPars
                 }
             });
 </script>";
-
         return $js;
     }
 }
