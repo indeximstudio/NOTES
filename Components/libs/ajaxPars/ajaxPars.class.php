@@ -1,10 +1,8 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: myindexlike
- * Date: 02.08.2016
- * Time: 0:20
+ * ajaxPars.class
+ * release 1.1.3
  */
 if (!defined('MODX_BASE_PATH')) {
     die('What are you doing? Get out of here!');
@@ -37,8 +35,8 @@ abstract class ajaxPars
         $this->data = $data;
         $this->flow = $flow;
 
-        $this->countIterations = $this->getCountIterations();
         $this->get_data_from_session();
+        $this->countIterations = $this->getCountIterations();
     }
 
     /**
@@ -55,15 +53,19 @@ abstract class ajaxPars
 
     /**
      * Сохраняем нужные парамтеры в сессию
+     * и обновляем сессию, если данные были переданы
      */
     private function get_data_from_session()
     {
-        if ($this->data == '' and isset($_SESSION['parsing'][$this->id]['data']) and count($_SESSION['parsing'][$this->id]['data']) > 0) {
-            $this->data = $_SESSION['parsing'][$this->id]['data'];
-        } elseif (isset($this->data) and $this->data != '') {
+        if (isset($this->data) and count($this->data) != 0) {
             $_SESSION['parsing'][$this->id]['data'] = $this->data;
+        } elseif (isset($_SESSION['parsing'][$this->id]['data']) and count($_SESSION['parsing'][$this->id]['data']) > 0) {
+            $this->data = $_SESSION['parsing'][$this->id]['data'];
         }
-        if ($this->flow == '' and isset($_SESSION['parsing'][$this->id]['flow']) and $_SESSION['parsing'][$this->id]['flow'] != '') {
+
+        if (isset($this->flow) and $this->flow != '') {
+            $_SESSION['parsing'][$this->id]['flow'] = $this->flow;
+        } elseif (isset($_SESSION['parsing'][$this->id]['flow']) and $_SESSION['parsing'][$this->id]['flow'] != '') {
             $this->flow = $_SESSION['parsing'][$this->id]['flow'];
         }
     }
