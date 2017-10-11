@@ -72,7 +72,7 @@ abstract class ajaxPars
      * получение процентов выполнения
      * @return integer
      */
-    public function getValue()
+    protected function getValue()
     {
         if ($this->countIterations > 0) {
             $_SESSION['parsing'][$this->id]['tekyshiy'] = $_SESSION['parsing'][$this->id]['tekyshiy'] + 1;
@@ -89,7 +89,7 @@ abstract class ajaxPars
      * вычисление и вывод данных о текущей операции
      * @return string
      */
-    public function ajaxTime()
+    protected function ajaxTime()
     {
         $time_start = isset($_SESSION['parsing'][$this->id]['start']) ? $_SESSION['parsing'][$this->id]['start'] : 0;
         $ostalos = $this->countIterations - $_SESSION['parsing'][$this->id]['tekyshiy'];
@@ -122,7 +122,6 @@ abstract class ajaxPars
 
     /**
      * запуск парсинга
-     * @return string
      */
     public function StartPars()
     {
@@ -155,7 +154,7 @@ abstract class ajaxPars
     }
 
     /**
-     * вывод полосы прогреса
+     * вывод полосы прогресса
      * @return string
      */
     public function getProgress()
