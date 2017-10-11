@@ -3,37 +3,37 @@ ajaxPars.class.php
 Класс для создания переборов любых данных посредством ajax c лёгкой реализацией.
 
 
-##Публичные Методы
-###getScript()
+## Публичные Методы
+### getScript()
 @return string
 
 подключает скрипты к странице
 
-###getProgress()
+### getProgress()
 @return string
 
 вывод полосы прогресса
 
-###StartPars()
+### StartPars()
 запуск перебора
 
-###StopPars()
+### StopPars()
 остановка перебора
 
-###getValueJson()
+### getValueJson()
 @return string (json)
 
 возвращает информацию о выполненом запросе на страницу в формате json
 
 
 
-##Абстрактные методы
+## Абстрактные методы
 
-###getCountIterations()
+### getCountIterations()
 @return int
 
 возвращает количество элементов перебора
 
-###getAction()
+### getAction()
 выполнение действий c полученными данными
 
