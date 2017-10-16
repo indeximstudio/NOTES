@@ -12,5 +12,5 @@
 10. Верстка / Frontend-разработка
 11. Backend-разработка
 12. Продажи
-13. PR
+13. [PR](PR.md)
 14. [Рынок Digital](MarketDigital.md)
