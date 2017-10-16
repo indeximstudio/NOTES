@@ -5,7 +5,7 @@
 3. [Переговоры](Negotiations.md)
 4. Управление проектами
 5. Работа с партнерами
-6. Документы на этапах продаж и производства
+6. [Документы на этапах продаж и производства](DocumentsAtStagesOfSalesAndProductions.md)
 7. [Креатив](Creative.md)
 8. Дизайн
 9. Motion design
