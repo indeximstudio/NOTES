@@ -11,6 +11,6 @@
 9. Motion design
 10. Верстка / Frontend-разработка
 11. Backend-разработка
-12. Продажи
+12. [Продажи](Sales.md)
 13. [PR](PR.md)
 14. [Рынок Digital](MarketDigital.md)
