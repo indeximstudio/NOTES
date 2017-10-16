@@ -8,7 +8,7 @@
 6. [Документы на этапах продаж и производства](DocumentsAtStagesOfSalesAndProductions.md)
 7. [Креатив](Creative.md)
 8. Дизайн
-9. Motion design
+9. [Motion design](MotionDesign.md)
 10. Верстка / Frontend-разработка
 11. [Backend-разработка](BackendDevelopment.md)
 12. [Продажи](Sales.md)
