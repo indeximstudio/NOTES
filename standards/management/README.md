@@ -4,7 +4,7 @@
 2. Корпоративная переписка
 3. [Переговоры](Negotiations.md)
 4. Управление проектами
-5. Работа с партнерами
+5. [Работа с партнерами](WorkWithPartners.md)
 6. [Документы на этапах продаж и производства](DocumentsAtStagesOfSalesAndProductions.md)
 7. [Креатив](Creative.md)
 8. Дизайн
