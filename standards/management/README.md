@@ -2,15 +2,15 @@
 
 1. [Корпоративная культура](CorporateCulture.md)
 2. Корпоративная переписка
-3. Переговоры
+3. [Переговоры](Negotiations.md)
 4. Управление проектами
-5. Работа с партнерами
-6. Документы на этапах продаж и производства
-7. Креатив
+5. [Работа с партнерами](WorkWithPartners.md)
+6. [Документы на этапах продаж и производства](DocumentsAtStagesOfSalesAndProductions.md)
+7. [Креатив](Creative.md)
 8. Дизайн
-9. Motion design
+9. [Motion design](MotionDesign.md)
 10. Верстка / Frontend-разработка
-11. Backend-разработка
-12. Продажи
-13. PR
-14. Рынок Digital
+11. [Backend-разработка](BackendDevelopment.md)
+12. [Продажи](Sales.md)
+13. [PR](PR.md)
+14. [Рынок Digital](MarketDigital.md)
