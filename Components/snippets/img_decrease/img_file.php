@@ -6,7 +6,7 @@ include_once('classSimpleImage.php');//клас для сжатия
 
 $dir_name = 'cat';//указаваем имя нашей папки
 
-$request = $modx->db->query( "SELECT * FROM `evo_img_file` WHERE `ready` = 0 ORDER BY `id_img_file` ASC LIMIT 1");
+$request = $modx->db->query( "SELECT * FROM ".$modx->getFullTableName('img_file')." WHERE ready = 0 ORDER BY id_img_file ASC LIMIT 1");
 $row =$modx->db->getRow($request); //Фомируем массив данных с базы
 $directory = "$row[directory]"; //Формируем путь
 $newdirectory = str_replace($dir_name, $dir_name . '_new', $directory);//Новый путь
@@ -26,15 +26,15 @@ if ($directory == '') { //если запрос пустой выдаем гот
 
     $image = new SimpleImage();//Создаем объект
     $image->load($filedirectory);//Загружаем файл
-    $modx->db->query("UPDATE `evo_img_file` SET `ready` = 1 WHERE `id_img_file` = $row[id_img_file]");//Заносим в базу начало работы
+    $modx->db->query("UPDATE ".$modx->getFullTableName('img_file')." SET `ready` = 1 WHERE `id_img_file` = $row[id_img_file]");//Заносим в базу начало работы
     if ($image->getWidth()>1000) { //если ширена файла больше нужной
         $image->resizeToWidth(1000);//уменьшаем картинку
         $image->save($newfiledirectory);//сохраняем картинку
-        $modx->db->query("UPDATE `evo_img_file` SET `ready` = 2 WHERE `id_img_file` = $row[id_img_file]");//Заносим в базу готовность
+        $modx->db->query("UPDATE ".$modx->getFullTableName('img_file')." SET `ready` = 2 WHERE `id_img_file` = $row[id_img_file]");//Заносим в базу готовность
         echo 'Файл уменьшен и сохранен: ' . $newfiledirectory . '<br>';
     } else {
         $image->save($newfiledirectory);//сохраняем файл
-        $modx->db->query("UPDATE `evo_img_file` SET `ready` = 2 WHERE `id_img_file` = $row[id_img_file]");//Заносим в базу готовность
+        $modx->db->query("UPDATE ".$modx->getFullTableName('img_file')." SET `ready` = 2 WHERE `id_img_file` = $row[id_img_file]");//Заносим в базу готовность
         echo 'Файл меньше нужного размера, сохранен: ' . $newfiledirectory . '<br>';
     }
 
