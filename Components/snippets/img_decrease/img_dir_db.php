@@ -8,7 +8,7 @@ global $modx;
 //Заносим в таблицу evo_papki первую запись с нужной нам папкой, имя паки и путь к ней, ready и file выставляем 0.
 
 
-$request = $modx->db->query('SELECT * FROM `evo_papki` WHERE `ready` = 0 ORDER BY `id_papki` ASC LIMIT 1');
+$request = $modx->db->query( "SELECT * FROM ".$modx->getFullTableName('papki')." WHERE ready = 0 ORDER BY id_papki ASC LIMIT 1");
 $row = $modx->db->getRow($request, assoc); //Фомируем массив данных с базы
 $directory = "$row[directory]$row[name]/"; //Формируем путь
 
@@ -22,7 +22,7 @@ if ($directory == '/') { //если получаем пустой запрос �
     while ($file = readdir($dir)) { //перебераем все елементы
         if (is_dir($directory . $file) && $file != '.' && $file != '..' && ([] !== (array_diff(scandir($directory . $file), array('.', '..'))))) { //проверяем являеться ли элемент папкой и есть ли в ней элементы
             echo 'Папка добавлена в базу: ' . $directory . $file . '<br>';
-            $modx->db->query("INSERT INTO `evo_papki` VALUE ('', '$file', '$directory', '0', '0')"); //добавляем елемент в базу
+            $modx->db->query("INSERT INTO ".$modx->getFullTableName('papki')." VALUE ('', '$file', '$directory', '0', '0')"); //добавляем елемент в базу
         }
         if (is_dir($directory . $file) && $file != '.' && $file != '..' && ([] === (array_diff(scandir($directory . $file), array('.', '..'))))) { //проверяем наличие пустых папок
             echo 'Пустая папка удалена: ' . $directory . $file . '<br>';
@@ -30,9 +30,9 @@ if ($directory == '/') { //если получаем пустой запрос �
         }
         if (is_file($directory . $file)) { //проверяем наличие файлов в папке
             echo 'Файл добавлен в базу: ' . $directory . $file . '<br>';
-            $modx->db->query("UPDATE `evo_papki` SET `files` = 1 WHERE `id_papki` = $row[id_papki]");//наличие файлов в папке
-            $modx->db->query("INSERT INTO `evo_img_file` VALUE ('', '$file', '$directory', '0')"); //добавляем файл в базу
+            $modx->db->query("UPDATE ".$modx->getFullTableName('papki')." SET `files` = 1 WHERE `id_papki` = $row[id_papki]");//наличие файлов в папке
+            $modx->db->query("INSERT INTO ".$modx->getFullTableName('img_file')." VALUE ('', '$file', '$directory', '0')"); //добавляем файл в базу
         }
     }
-    $modx->db->query("UPDATE `evo_papki` SET `ready` = 1 WHERE `id_papki` = $row[id_papki]"); //меняем value текущей директории на готовноть
+    $modx->db->query("UPDATE ".$modx->getFullTableName('papki')." SET `ready` = 1 WHERE `id_papki` = $row[id_papki]"); //меняем value текущей директории на готовноть
 }
