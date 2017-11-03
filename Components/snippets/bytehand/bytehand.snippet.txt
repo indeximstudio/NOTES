@@ -1,0 +1,6 @@
+<?php
+$BYTEHAND['ID'] = "YOUR_ID";
+$BYTEHAND['KEY'] = "YOUR_KEY";
+$BYTEHAND['FROM'] = "YOUR_FROM";
+require_once $modx->config['base_path']."assets/snippets/bytehand/bytehand.inc.php";
+?>
