@@ -1,0 +1,85 @@
+/* todo Common */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black !important;
+}
+
+td, th {
+    padding: 5px;
+}
+
+/* \ Common */
+
+/* todo Adaptive tables */
+
+.table-bordered>thead>tr>td,
+.table-bordered>thead>tr>th {
+    border-bottom-width: 0 !important;
+}
+
+@media only screen and (max-width: 767px) {
+    table.table_adaptive,
+    table.table_adaptive thead,
+    table.table_adaptive tbody,
+    table.table_adaptive th,
+    table.table_adaptive td,
+    table.table_adaptive tr {
+        display: block;
+    }
+
+    table.table_adaptive th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    table.table_adaptive tr {
+        border-bottom: 2px solid black !important;
+    }
+
+    table.table_adaptive tr:last-child {
+        border-bottom: none !important;
+    }
+
+    table.table_adaptive tr td {
+        border-bottom: 1px solid black !important;
+    }
+
+    table.table_adaptive tr td:last-child {
+        border-bottom: none !important;
+    }
+
+    table.table_adaptive tr:last-child,
+    table.table_adaptive tr:first-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    table.table_adaptive tr td {
+        border: none;
+        position: relative;
+        padding-left: 30% !important;
+        white-space: normal;
+        text-align: left;
+    }
+
+    table.table_adaptive tr td:before {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 30%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    table.table_adaptive td:before {
+        content: attr(label-value);
+    }
+}
+
+/* \Adaptive tables */
