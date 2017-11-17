@@ -2,7 +2,9 @@
 
 ## Что такое Composer и зачем он нужен
 
-![Логотип Composer](Files/installComposerForWindows/composer-logo.png) Composer ([getcomposer.org](getcomposer.org)) — это менеджер зависимостей для PHP. Вы можете описать от каких библиотек зависит ваш проект и Composer установит нужные библиотеки за вас!  
+![Логотип Composer](Files/installComposerForWindows/composer-logo.png) 
+
+Composer ([getcomposer.org](https://getcomposer.org/)) — это менеджер зависимостей для PHP. Вы можете описать от каких библиотек зависит ваш проект и Composer установит нужные библиотеки за вас!  
 
 **Кратко, как это работает:**  
 1. У вас есть проект, который зависит от нескольких библиотек.
