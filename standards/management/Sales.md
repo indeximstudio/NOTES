@@ -16,9 +16,7 @@
 
 ## CRM
 
-- amoCRM. Студия Олега Чулакова работает с amoCRM
+- amoCRM
 - Мегаплан
 - Streak CRM. Простая, удобная, но довольно дорогая CRM-система базирующаяся на сервисе в Gmail
-- Битрикс24 (bitrix24.ru),
-<br> bitrix24.ru/whatisthis/, <br>
-youtube.com/watch?v=gy7psPCEwX0
+- Битрикс24 (bitrix24.ru)
