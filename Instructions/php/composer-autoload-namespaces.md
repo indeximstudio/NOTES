@@ -67,3 +67,5 @@
             "view\\": "view/"
         }
     }
+    
+и выполнить команду `composer update`
