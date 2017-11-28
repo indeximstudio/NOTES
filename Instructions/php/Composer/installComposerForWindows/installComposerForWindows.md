@@ -2,7 +2,7 @@
 
 ## Что такое Composer и зачем он нужен
 
-![Логотип Composer](Files/installComposerForWindows/composer-logo.png) 
+![Логотип Composer](composer-logo.png) 
 
 Composer ([getcomposer.org](https://getcomposer.org/)) — это менеджер зависимостей для PHP. Вы можете описать от каких библиотек зависит ваш проект и Composer установит нужные библиотеки за вас!  
 
@@ -27,7 +27,7 @@ Composer ([getcomposer.org](https://getcomposer.org/)) — это менедже
 
 **Готово! Composer установлен**.  
 Для проверки нужно открыть консоль Windows (`Windows+R` > `cmd` > `OK`) и написать команду `composer`. После чего нам покажет информацию о версии и доступных командах.  
-![Информация о composer](Files/installComposerForWindows/composer-info.png)  
+![Информация о composer](composer-info.png)  
 
 ## Использование Composer в проектах PhpStorm  
 
@@ -39,9 +39,9 @@ Composer ([getcomposer.org](https://getcomposer.org/)) — это менедже
     Нас попросит ввести данные проекта, их можно не вводить и все пропускать. В конце в папке в которой мы инициализируем composer создастся файл `composer.json` в котором будут поля с данными которые мы ввсели при инициализации. Их можно будет редактировать.
 3. После того как файл `composer.json` сгенерировался открываем его.  
     Но примерно будет следующего вида:  
-![Файл composer.json по умолчанию](Files/installComposerForWindows/composerjson-default.png)  
+![Файл composer.json по умолчанию](composerjson-default.png)  
 Нам нужно добавить настройки авторазгрузчика. Для етого в самом конце файла (перед последней закрывающей скобкой) дописываем правила `autoload` как на картинке:  
-![Файл composer.json с минимальными настройками автозагрузчика](Files/installComposerForWindows/composerjson-autoload.png)  
+![Файл composer.json с минимальными настройками автозагрузчика](composerjson-autoload.png)  
 Тут мы задали правила поиска файлов `psr-4`, тоесть на основе пространства имен ([Советую прочитать](https://github.com/codedokode/pasta/blob/master/php/autoload.md)).  
 
 PhpStorm умеет работать с composer и при редактировании файла composer.json в правом верхнем углу появляются две кнопки: `Install` и `Update`. Нажимаем на `Install`, после чего composer считает то что мы написали в файле и скачает все библиотеки которые подключены в етом файле и загрузит их в папку `vendor` которую он сам создаст.  
