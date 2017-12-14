@@ -1,6 +1,6 @@
 Пособие разработано для стажеров, которые хотят развиваться как менеджеры проектов, аккаунт-менеджеры или продюсеры в сфере Digital.
 
-1. [Корпоративная культура](BackendDevelopment/BackendDevelopment.md)
+1. [Корпоративная культура](CorporateCulture/CorporateCulture.md)
 2. [Корпоративная переписка](corporateCorrespondence/CorporateCorrespondence.md)
 3. [Переговоры](Negotiations/Negotiations.md)
 4. [Управление проектами](ProjectManagement/ProjectManagement.md)
