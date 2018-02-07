@@ -13,3 +13,6 @@
 1. [Работа с GitHub](git/README.md)
 2. [Язык разметки Markdown](git/Markdown/Markdown.md)
 3. [Организация файлов](git/FilesInGit/organizingFilesInGit.md)
+
+## Server
+1. [Перевод сайта с HTTP на HTTPS](server/http/README.md)
