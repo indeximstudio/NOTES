@@ -15,4 +15,4 @@
 3. [Организация файлов](git/FilesInGit/organizingFilesInGit.md)
 
 ## Server
-1. [Перевод сайта на https](server/http/README.md)
+1. [Перевод сайта с HTTP на HTTPS](server/http/README.md)
