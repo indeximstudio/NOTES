@@ -1,3 +1,3 @@
 ## Звук для видео
 
-- [Стандарты](standards/README.md)
+- [Шумотека. Библиотека звуков NoiseFX.ru](http://noisefx.ru/)
