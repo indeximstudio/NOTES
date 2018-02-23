@@ -1,6 +1,6 @@
 ## Видеомонтаж
 
-- [Premiere Pro CC](video_editing/premiere_pro_cc/README.md)
-- [After Effects CC](video_editing/after_effects_cc/README.md)
-- [Audio](video_editing/audio/README.md)
-- [Оther](video_editing/other/README.md)
+- [Premiere Pro CC](premiere_pro_cc/README.md)
+- [After Effects CC](after_effects_cc/README.md)
+- [Audio](audio/README.md)
+- [Оther](other/README.md)
