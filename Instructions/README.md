@@ -8,6 +8,7 @@
 4. [Устанока Composer'a на Windows и использование его в PhpStorm](php/Composer/installComposerForWindows/installComposerForWindows.md)
 5. [Composer autoloarer + namespace (psr-4)](php/Composer/ComposerAutoloarer/composer-autoload-namespaces.md)
 6. [Загрузка пакетов с packagist.org](php/Composer/repositories/repositories.md)
+7. [Компиляция стилей с less в css](php/LessCompiler/LessCompiler.md)
 
 ## GIT
 1. [Работа с GitHub](git/README.md)
