@@ -15,22 +15,22 @@
 ![install_less_cmd](install_less_cmd.jpg)  
 Теперь less доступен во всех проектах, но не зупущен.
 
-## Запустк less в проекте PhpShtorm
+## Запуск less в проекте PhpShtorm
 1. В проекте перейдите в главном меню  
     `File -> Settings -> Tools -> File Watchers` or `Ctrl+Alt+S`
 2. Нажмите на значок «+», в выпадающем меню выбирите `Less`
 3. Настраиваем less  
-3.1. Проверяем путь к less, на отсутсвие ошыбок (см. фото2)  
-3.2. Убираем галочку `Auto-save edited files to trigger the watcher`  
+3.1. Проверте путь к less, на отсутсвие ошыбок (см. фото2)  
+3.2. Убирите галочку `Auto-save edited files to trigger the watcher`  
 ![settings_file_watcher_less](settings_file_watcher_less.jpg)  
-3.3. Сохраняем
+3.3. Сохраните
 
 ## Готово
 
 >**Полезно**  
 >* *Подробная инструкцыя по установке от jetbrains*
 https://www.jetbrains.com/help/phpstorm/compiling-sass-less-and-scss-to-css.html  
->* *Введение в Less синтаксис* (начиная с пункта "Укрощаем мощь LESS") https://habrahabr.ru/post/136525/
+>* *Введение в синтаксис less* (начиная с пункта "Укрощаем мощь LESS") https://habrahabr.ru/post/136525/
 
 > **На заметку**   
-На даном етапе каждый правленый (после устновки less) less-файл будет компилироваться в css-файл с таким же названием. Файлы можно обьеденять, минимизировать... Использовать less на полную
+На даном етапе каждый правленый (после устновки less) less-файл будет компилироваться в css-файл с таким же названием. Файлы можно обьеденять, минимизировать...
