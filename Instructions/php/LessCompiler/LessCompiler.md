@@ -4,7 +4,7 @@
 1. Проверте включен ли плагин `File Watchers` в PhpShtorm  
 `File -> Settings -> Tools -> File Watchers` or `Ctrl+Alt+S`   
 Должен быть включен.
-Подробная установка описана в статье [Установка плагина в PhpShtorm](../Compres/CompresJsAndCss.md)
+Подробная установка описана в статье [Удобный плагин для PhpShtorm, который создает сжатую копию файлов js и css](../Compres/CompresJsAndCss.md) пункт "Установка плагина в PhpShtorm"  
 2. Загрузите и установите Node.js https://nodejs.org/en/  
 В составе Node.js есть, необходимый для установки less, NPM (node package manager)
 
