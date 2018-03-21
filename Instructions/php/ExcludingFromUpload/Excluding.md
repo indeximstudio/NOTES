@@ -12,7 +12,7 @@
 
     стандартная строка `.svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc`
 
-    необходые маски файлов `*.min.min.*` и `*.gitignore`
+    необходимые маски файлов `*.min.min.*` и `*.gitignore`
 
     результат `.svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*.min.min.*;*.gitignore`
 
