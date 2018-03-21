@@ -9,6 +9,7 @@
 5. [Composer autoloarer + namespace (psr-4)](php/Composer/ComposerAutoloarer/composer-autoload-namespaces.md)
 6. [Загрузка пакетов с packagist.org](php/Composer/repositories/repositories.md)
 7. [Компиляция стилей с less в css](php/LessCompiler/LessCompiler.md)
+7. [Исключение файлов из выгрузки по названию](php/ExcludingFromUpload/Excluding.md)
 
 ## GIT
 1. [Работа с GitHub](git/README.md)
