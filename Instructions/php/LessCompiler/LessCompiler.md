@@ -28,7 +28,7 @@
 ## Готово
 
 >**Полезно**  
->* *Подробная инструкцыя по установке от jetbrains*
+>* *Подробная инструкция по установке от jetbrains*
 https://www.jetbrains.com/help/phpstorm/compiling-sass-less-and-scss-to-css.html  
 >* *Введение в синтаксис less* (начиная с пункта "Укрощаем мощь LESS") https://habrahabr.ru/post/136525/
 
