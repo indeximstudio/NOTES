@@ -78,7 +78,7 @@ td, th {
     }
 
     table.table_adaptive td:before {
-        content: attr(label-value);
+        content: attr(data-head);
     }
 }
 
