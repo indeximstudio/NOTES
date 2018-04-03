@@ -6,7 +6,7 @@ $(document).ready(function(){
         var th_text = $(this).text();
         var tr = $('table.table_adaptive tr');
         tr.each(function () {
-            $(this).children('td').eq(th_index).attr('label-value', th_text);
+            $(this).children('td').eq(th_index).attr('data-head', th_text);
         });
     });
 // \ адаптивные таблицы
