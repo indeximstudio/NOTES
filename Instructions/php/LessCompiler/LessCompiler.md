@@ -21,10 +21,9 @@
 2. Нажмите на значок «+», в выпадающем меню выбирите `Less`
 3. Настраиваем less  
 3.1. Проверте путь к less, на отсутсвие ошыбок (см. фото2)  
-    ````
-    C:\Users\hp\AppData\Roaming\npm\lessc.cmd
-    ````
-3.2. Убирите галочку `Auto-save edited files to trigger the watcher`  
+    `C:\Users\hp\AppData\Roaming\npm\lessc.cmd`
+3.2. Убирите галочку
+    `Auto-save edited files to trigger the watcher`  
 ![settings_file_watcher_less](settings_file_watcher_less.jpg)  
 3.3. Сохраните
 
