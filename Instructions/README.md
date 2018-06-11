@@ -19,3 +19,6 @@
 
 ## Server
 1. [Перевод сайта с HTTP на HTTPS](server/http/README.md)
+
+## EVO
+1. [Инструкции по EVO](evo/README.md)
